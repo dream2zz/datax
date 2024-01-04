@@ -1,0 +1,47 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 1
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "root",
+                        "password": "p@ssw0rd",
+                        "column": [ "id", "ship_name"],
+                        "connection": [
+                            {
+                                "table": [ "orders"],
+                                "jdbcUrl": [
+                                     "jdbc:mysql://localhost:3306/northwind?useSSL=false"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter", 
+                    "parameter": {
+                        "username": "root",
+                        "password": "p@ssw0rd",
+                        "column": [ "id", "name" ], 
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://localhost:3306/northwind?useSSL=false", 
+                                "table": ["NewTable1"]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
