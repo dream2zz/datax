@@ -1,0 +1,48 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 1
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "root",
+                        "password": "p@ssw0rd",
+                        "column": [ "k1", "k2"],
+                        "connection": [
+                            {
+                                "table": [ "table1"],
+                                "jdbcUrl": [
+                                     "jdbc:mysql://localhost:3306/test?useSSL=false"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "starrockswriter",
+                    "parameter": {
+                        "username": "root",
+                        "password": "",
+                        "database": "test",
+                        "table": "tables",
+                        "column": ["k1", "k2"],
+                        "preSql": [],
+                        "postSql": [], 
+                        "jdbcUrl": "jdbc:mysql://localhost:9030/",
+                        "loadUrl": ["localhost:8030"],
+                        "loadProps": {}
+                    }
+                }
+            }
+        ]
+    }
+}
